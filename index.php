@@ -9,7 +9,7 @@ if(key_exists("dir", $_GET)) {
     // TODO: Safely allow subdirectories of store/
 }
 
-$dir = new \dir\Directory($dir_name);
+$dir = \dir\Directory::loadDirectory($dir_name);
 $rss = \rss\Feed::fromDirectory($dir);
 echo $rss->toXml();
 ?>
