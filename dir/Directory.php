@@ -20,7 +20,7 @@ class Directory {
     }
     
     public static function loadDirectory($dirName) {
-        $fileNames = array_diff(scandir($directory), array('..', '.'));
+        $fileNames = array_diff(scandir($dirName), array('..', '.'));
         $fileArray = Array();
         foreach($fileNames as $fileName) {
             $fullName = $dirName+"/"+$fileName;
