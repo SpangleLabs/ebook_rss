@@ -34,7 +34,7 @@ class Item {
     }
     
     static function fromFile($file) {
-        $newItem = Item();
+        $newItem = new Item();
         $newItem->setTitle($file->getFileName());
         $newItem->setDescription($file->getFullName());
         $fullLink = "http://spangle.org.uk/ebook_rss/".$file->getFullName();
