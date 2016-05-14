@@ -13,12 +13,6 @@ class Directory {
         return $this->listItems;
     }
     
-    public static function compareModTimes($fileNameA, $fileNameB) {
-        $timeA = filemtime($fileNameA);
-        $timeB = filemtime($fileNameB);
-        return $timeA-$timeB;
-    }
-    
     public static function loadDirectory($dirName) {
         $fileNames = array_diff(scandir($dirName), array('..', '.'));
         $fileArray = Array();
@@ -28,7 +22,9 @@ class Directory {
         }
         
         // Sort the files
-        usort($fileArray, Array("Directory","compareModTimes"));
+        usort($fileArray, function($a, $b) {
+            return filemtime($a)-filemtime($b);
+        });
         
         // Create file objects
         $returnDir = new Directory();
