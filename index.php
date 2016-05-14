@@ -11,5 +11,6 @@ if(key_exists("dir", $_GET)) {
 
 $dir = \dir\Directory::loadDirectory($dirName);
 $rss = \rss\Feed::fromDirectory($dir);
+header('Content-Type: application/rss+xml');
 echo $rss->toXml();
 ?>
