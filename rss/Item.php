@@ -45,7 +45,13 @@ class Item {
     }
     
     function toXml() {
-        //TODO
-        return "";
+        $output = "<item>";
+        $output .= "<title>".$this->title."</title>";
+        $output .= "<description>".$this->description."</description>";
+        $output .= "<link>".$this->link."</link>";
+        $output .= "<guid>".$this->guid."</guid>";
+        $output .= "<pubDate>".$this->pubDate."</pubDate>";
+        $output .= "</item>";
+        return $output;
     }
 }
