@@ -37,7 +37,7 @@ class Item {
         $newItem = new Item();
         $newItem->setTitle($file->getFileName());
         $newItem->setDescription($file->getFullName());
-        $fullLink = "http://spangle.org.uk/ebook_rss/".$file->getFullName();
+        $fullLink = "http://spangle.org.uk/ebook_rss/".$file->getDirName()."/".urlencode($file->getFileName());
         $newItem->setLink($fullLink);
         $newItem->setGuid($fullLink);
         $newItem->setPubDate(Item::outputTime($file->getModTime()));
