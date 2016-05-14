@@ -51,6 +51,7 @@ class Item {
         $output .= "<link>".$this->link."</link>";
         $output .= "<guid>".$this->guid."</guid>";
         $output .= "<pubDate>".$this->pubDate."</pubDate>";
+        $output .= "<enclosure url=\"".$this->link."\"/>";
         $output .= "</item>";
         return $output;
     }
