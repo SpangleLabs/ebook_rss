@@ -17,7 +17,7 @@ class Directory {
         $fileNames = array_diff(scandir($dirName), array('..', '.'));
         $fileArray = Array();
         foreach($fileNames as $fileName) {
-            $fullName = $dirName+"/"+$fileName;
+            $fullName = $dirName."/".$fileName;
             $fileArray[] = $fullName;
         }
         
