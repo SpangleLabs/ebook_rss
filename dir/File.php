@@ -12,7 +12,7 @@ class File {
         $this->fullName = $fullName;
         $this->modTime = filemtime($fullName);
         $this->fileName = substr($fullName, strrpos($fullName, '/') + 1);
-        $this->dirName = str_replace($this->fileName,"",$this->fullName);
+        $this->dirName = preg_replace('{/+$}', '', str_replace($this->fileName,"",$this->fullName));
     }
     
     function getFileName() {
