@@ -20,6 +20,11 @@ class Feed {
     }
     
     public static function fromDirectory($directory) {
-        //TODO;
+        $newFeed = new Feed();
+        foreach($directory->listFiles() as $file) {
+            $newItem = Item::fromFile($file);
+            $newFeed->addItem($newItem);
+        }
+        return $newFeed;
     }
 }
